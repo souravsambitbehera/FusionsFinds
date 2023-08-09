@@ -9,6 +9,7 @@ import Order from './pages/order/Order'
 import Cart from './pages/cart/Cart'
 import Dashboard from './pages/admin/dashboard/Dashboard'
 import MyState from './context/data/myState'
+import AllProducts from './pages/allproducts/AllProducts'
 
 function App() {
 
@@ -16,7 +17,6 @@ function App() {
     <>
     <MyState>
       {/* MyState is provide the context to the whole app */}
-      <div className='text-3xl text-lime-400'>Welcome ...</div>
       <Navbar/>
       <Outlet /> 
       {/* use outlet bcz all the childreen of App component will show here.
@@ -45,10 +45,16 @@ const router = createBrowserRouter([
         path:"cart",
         element:<Cart/>
       },
+
       {
         path:"dashboard",
         element:<Dashboard/>
+      },
+      {
+        path:"allproducts",
+        element:<AllProducts/>
       }
+    
     ]
   }
 ])

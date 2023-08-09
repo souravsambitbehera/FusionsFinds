@@ -2,9 +2,9 @@ import React, { useContext } from 'react'
 import myContext from '../../context/data/myContext'
 
 const Order = () => {
-  const {name,age}=useContext(myContext)
+  // const {name,age}=useContext(myContext)
   return (
-    <div>Order by {name}</div>
+    <div>Order by </div>
   )
 }
 
