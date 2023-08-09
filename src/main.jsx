@@ -7,6 +7,7 @@ import router from './App.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router}>
+      {/* router is provide to the whole app */}
     </RouterProvider>
   </React.StrictMode>,
 )

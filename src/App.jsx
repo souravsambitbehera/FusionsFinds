@@ -8,18 +8,25 @@ import Home from './pages/home/Home'
 import Order from './pages/order/Order'
 import Cart from './pages/cart/Cart'
 import Dashboard from './pages/admin/dashboard/Dashboard'
+import MyState from './context/data/myState'
 
 function App() {
 
   return (
     <>
+    <MyState>
+      {/* MyState is provide the context to the whole app */}
       <div className='text-3xl text-lime-400'>Welcome ...</div>
       <Navbar/>
-      <Outlet />
+      <Outlet /> 
+      {/* use outlet bcz all the childreen of App component will show here.
+       Navbar and Footer will be constant  */}
       <Footer/>
+      </MyState>
     </>
   )
 }
+// i'm using react router dom version 6.4
 const router = createBrowserRouter([
   {
     path:"/",

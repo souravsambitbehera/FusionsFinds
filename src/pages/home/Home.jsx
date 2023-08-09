@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import myContext from '../../context/data/myContext'
 
 const Home = () => {
+  const context = useContext(myContext)
+  // here im consuming context by using useContext
+  console.log(context)
+  const {name,age}=context
   return (
-    <div>Home</div>
+    <div>Home
+      <p>my name is  {name}</p>
+      <p>my age is {age}</p>
+    </div>
   )
 }
 
