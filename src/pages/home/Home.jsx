@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import myContext from '../../context/data/myContext'
 import HeroSection from '../../components/herosection/HeroSection'
+import Track from '../../components/track/Track'
 
 const Home = () => {
   // const context = useContext(myContext)
@@ -10,9 +11,8 @@ const Home = () => {
   return (
     <div>
       <HeroSection />
-      Home
-      <p>my name is  </p>
-      <p>my age is </p>
+      <Track/>
+      
     </div>
   )
 }

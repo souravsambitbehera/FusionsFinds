@@ -1,8 +1,9 @@
 import React from 'react'
+import Offer from '../../components/offer/Offer'
 
 const AllProducts = () => {
   return (
-    <div>AllProducts</div>
+<Offer/>      
   )
 }
 
