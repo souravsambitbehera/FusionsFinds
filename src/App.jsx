@@ -10,6 +10,8 @@ import Cart from './pages/cart/Cart'
 import Dashboard from './pages/admin/dashboard/Dashboard'
 import MyState from './context/data/myState'
 import AllProducts from './pages/allproducts/AllProducts'
+import Login from './pages/registration/Login'
+import Signup from './pages/registration/Signup'
 
 function App() {
 
@@ -56,6 +58,14 @@ const router = createBrowserRouter([
       }
     
     ]
+  },
+  {
+    path:"login",
+    element:<Login/>
+  },
+  {
+    path:"signup",
+    element:<Signup/>
   }
 ])
 
