@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import myContext from '../../context/data/myContext'
 import HeroSection from '../../components/herosection/HeroSection'
 import Track from '../../components/track/Track'
+import Filter from '../../components/filter/Filter'
 
 const Home = () => {
   // const context = useContext(myContext)
@@ -12,7 +12,7 @@ const Home = () => {
     <div>
       <HeroSection />
       <Track/>
-      
+      <Filter/>
     </div>
   )
 }
