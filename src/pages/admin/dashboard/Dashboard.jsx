@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import myContext from '../../../context/data/myContext'
 import {FaUserTie } from 'react-icons/fa';
+import DashboardTab from './DashboardTab';
 
 const Dashboard = () => {
   return (
@@ -15,6 +16,7 @@ const Dashboard = () => {
             <DashboardChild number="20" name="Total Products"/>
         </div>
     </div>
+    <DashboardTab />
 </section>
   )
 }
