@@ -12,6 +12,8 @@ import MyState from './context/data/myState'
 import AllProducts from './pages/allproducts/AllProducts'
 import Login from './pages/registration/Login'
 import Signup from './pages/registration/Signup'
+import AddProduct from './pages/admin/pages/AddProduct'
+import UppdateProduct from './pages/admin/pages/UppdateProduct'
 
 function App() {
 
@@ -66,6 +68,14 @@ const router = createBrowserRouter([
   {
     path:"signup",
     element:<Signup/>
+  },
+  {
+    path:"addproduct",
+    element:<AddProduct/>
+  },
+  {
+    path:"updateproduct",
+    element:<UppdateProduct/>
   }
 ])
 
