@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Loader from '../../firebase/Loader';
 import { toast,ToastContainer } from 'react-toastify';
 import { createUserWithEmailAndPassword, signInAnonymously } from "firebase/auth";
@@ -14,6 +14,7 @@ const Signup = () => {
         const[email,setEmail]=useState("")
         const[password,setPassword]=useState("")
         const {loading , setLoading} = useContext(myContext)
+        const navigate = useNavigate()
 
         const signup = async ()=>{
             setLoading(true)
@@ -35,6 +36,7 @@ const Signup = () => {
                 setEmail("")
                 setPassword("")
                 toast.success("Signup succes")
+                navigate("/login")
                 setLoading(false)
                 
             } catch (error) {
@@ -47,6 +49,7 @@ const Signup = () => {
             try {
                 await signInAnonymously(auth);
                 toast.success('Guest mode login success');
+                navigate("/")
             } catch (error) {
                 toast.error('Guest mode login failed');
             }

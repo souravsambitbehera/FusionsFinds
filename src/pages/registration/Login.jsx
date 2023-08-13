@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import { signInWithEmailAndPassword,signInAnonymously } from 'firebase/auth';
 import { auth } from '../../firebase/FirebaseConfig';
 import { toast,ToastContainer } from 'react-toastify';
@@ -12,6 +12,7 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const {loading , setLoading} = useContext(myContext)
+    const navigate = useNavigate()
 
     const handleLoginClick = async () => {
         setLoading(true)
@@ -22,6 +23,7 @@ const Login = () => {
             setEmail("")
             setPassword("")
             toast.success('Login Success');
+            navigate('/')
             setLoading(false)
 
         } catch (error) {
@@ -35,6 +37,7 @@ const Login = () => {
         try {
             await signInAnonymously(auth);
             toast.success('Guest mode login success');
+            navigate('/')
         } catch (error) {
             toast.error('Guest mode login failed');
         }
