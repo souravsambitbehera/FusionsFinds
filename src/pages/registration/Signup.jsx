@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Loader from '../../firebase/Loader';
 import { toast,ToastContainer } from 'react-toastify';
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInAnonymously } from "firebase/auth";
 
 import { fireDb,auth } from '../../firebase/FirebaseConfig';
 import myContext from '../../context/data/myContext';
@@ -23,7 +23,7 @@ const Signup = () => {
             }
             try {
                 const users = await createUserWithEmailAndPassword(auth,email,password)
-                console.log(users)
+                // console.log(users)
                 const user = {
                     name:name,
                     uid:users.user.uid,
@@ -38,11 +38,19 @@ const Signup = () => {
                 setLoading(false)
                 
             } catch (error) {
-                console.log(error)
+                // console.log(error)
                 toast.error("Signup Failed")
                 setLoading(false)
             }
         }
+        const handleGuestLogin = async () => {
+            try {
+                await signInAnonymously(auth);
+                toast.success('Guest mode login success');
+            } catch (error) {
+                toast.error('Guest mode login failed');
+            }
+        };
     return (
         <div className=' flex justify-center items-center h-screen'>
             {loading && <Loader/>}
@@ -84,6 +92,9 @@ const Signup = () => {
                     <button onClick={signup}
                         className=' bg-emerald-700 w-full text-black font-bold  px-2 py-2 rounded-lg'>
                         Signup
+                    </button>
+                    <button onClick={handleGuestLogin} className='bg-gray-600 w-full text-white font-bold px-2 py-2 rounded-lg'>
+                        Guest Mode
                     </button>
                 </div>
                 <div>
