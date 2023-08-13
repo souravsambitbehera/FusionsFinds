@@ -4,6 +4,8 @@ import myContext from './myContext'
 
 const MyState = (props) => {
   const [mode,setMode]= useState("light");
+  const[loading,setLoading] =useState(false)
+
     const toggleMode = ()=>{
       if(mode === "light"){
         setMode("dark");
@@ -15,7 +17,7 @@ const MyState = (props) => {
       }
     }
   return (
-    <myContext.Provider value={{mode,toggleMode}}>
+    <myContext.Provider value={{mode,toggleMode,loading,setLoading}}>
         {props.children}
         {/*  provide the value to any children component that use the context of myContext  */}
     </myContext.Provider>
