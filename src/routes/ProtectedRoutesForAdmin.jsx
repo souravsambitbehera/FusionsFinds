@@ -8,12 +8,10 @@ export const ProtectedRoutesForAdmin = ({children}) => {
 
     // console.log(admin?.user?.email)
     useEffect(()=>{
-      if (admin?.user?.email === 'souravsambit12@gmail.com') {
-        return children
-      }
-      else {
+      if (admin?.user?.email !== 'souravsambit12@gmail.com') {
         Navigate("/login")
       }
     },[admin,Navigate])
+    return children
     
   }

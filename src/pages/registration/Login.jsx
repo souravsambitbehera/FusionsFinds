@@ -92,7 +92,7 @@ const Login = () => {
                 </div>
                 <div className=' flex justify-center mb-3'>
                     <button onClick={handleLoginClick}
-                        className=' bg-emerald-700 w-full text-black font-bold  px-2 py-2 rounded-lg'>
+                        className=' bg-emerald-700 w-full text-black font-bold  px-1 py-1 rounded-lg'>
                         Login
                     </button>
                     <button onClick={handleGuestLogin} className='bg-gray-600 w-full text-white font-bold px-2 py-2 rounded-lg'>
