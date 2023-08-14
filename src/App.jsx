@@ -14,6 +14,8 @@ import Login from './pages/registration/Login'
 import Signup from './pages/registration/Signup'
 import AddProduct from './pages/admin/pages/AddProduct'
 import UppdateProduct from './pages/admin/pages/UppdateProduct'
+import { ProtectedRoutesForAdmin } from './routes/ProtectedRoutesForAdmin'
+import ProtectedRoutes from './routes/ProtectedRoutes'
 
 
 function App() {
@@ -42,25 +44,27 @@ const router = createBrowserRouter([
         path:"/",
         element:<Home/>
       },
-      {
-        path:"order",
-        element:<Order/>
-      },
+      
       {
         path:"cart",
         element:<Cart/>
       },
 
-      {
-        path:"dashboard",
-        element:<Dashboard/>
-      },
+      
       {
         path:"allproducts",
         element:<AllProducts/>
       }
     
     ]
+  },
+  {
+    path:"order",
+    element:<ProtectedRoutes><Order/></ProtectedRoutes>
+  },
+  {
+    path:"dashboard",
+    element:<ProtectedRoutesForAdmin><Dashboard/></ProtectedRoutesForAdmin>
   },
   {
     path:"login",
@@ -72,11 +76,11 @@ const router = createBrowserRouter([
   },
   {
     path:"addproduct",
-    element:<AddProduct/>
+    element:<ProtectedRoutesForAdmin><AddProduct/></ProtectedRoutesForAdmin>
   },
   {
     path:"updateproduct",
-    element:<UppdateProduct/>
+    element:<ProtectedRoutesForAdmin><UppdateProduct/></ProtectedRoutesForAdmin>
   }
 ])
 

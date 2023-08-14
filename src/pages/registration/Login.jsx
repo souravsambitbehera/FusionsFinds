@@ -18,6 +18,7 @@ const Login = () => {
         setLoading(true)
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            localStorage.setItem("user",JSON.stringify(userCredential));
             // User successfully logged in
             // console.log('User logged in:', userCredential.user);
             setEmail("")
