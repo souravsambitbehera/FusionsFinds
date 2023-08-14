@@ -70,7 +70,7 @@ const Navbar = () => {
                     </Link>
                   </div>:""}
 
-                  {user?<div className="flow-root">
+                  {user?<div onClick={logout} className="flow-root">
                     <a className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer" style={{ color: mode === 'dark' ? 'white' : '', }}>
                       Logout
                     </a>

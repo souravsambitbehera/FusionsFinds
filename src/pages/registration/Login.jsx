@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link,useNavigate } from 'react-router-dom'
 import { signInWithEmailAndPassword,signInAnonymously } from 'firebase/auth';
 import { auth } from '../../firebase/FirebaseConfig';
@@ -13,6 +13,14 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const {loading , setLoading} = useContext(myContext)
     const navigate = useNavigate()
+    const user = JSON.parse(localStorage.getItem('user'))
+    
+
+    useEffect(()=>{
+        if(user){
+            navigate("/")
+        }
+    },[navigate,user])
 
     const handleLoginClick = async () => {
         setLoading(true)
@@ -36,7 +44,10 @@ const Login = () => {
     };
     const handleGuestLogin = async () => {
         try {
-            await signInAnonymously(auth);
+            const userCredential = await signInWithEmailAndPassword(auth, "sambit@gmail.com", "859812");
+            localStorage.setItem("user",JSON.stringify(userCredential));
+            // await signInAnonymously(auth);
+            
             toast.success('Guest mode login success');
             navigate('/')
         } catch (error) {

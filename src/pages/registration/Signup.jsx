@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState,useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Loader from '../../firebase/Loader';
 import { toast,ToastContainer } from 'react-toastify';
-import { createUserWithEmailAndPassword, signInAnonymously } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInAnonymously,signInWithEmailAndPassword } from "firebase/auth";
 
 import { fireDb,auth } from '../../firebase/FirebaseConfig';
 import myContext from '../../context/data/myContext';
@@ -15,6 +15,15 @@ const Signup = () => {
         const[password,setPassword]=useState("")
         const {loading , setLoading} = useContext(myContext)
         const navigate = useNavigate()
+        const user = JSON.parse(localStorage.getItem('user'))
+    
+
+    useEffect(()=>{
+        if(user){
+            navigate("/")
+        }
+    },[navigate,user])
+
 
         const signup = async ()=>{
             setLoading(true)
@@ -47,7 +56,8 @@ const Signup = () => {
         }
         const handleGuestLogin = async () => {
             try {
-                await signInAnonymously(auth);
+                const userCredential = await signInWithEmailAndPassword(auth, "sambit@gmail.com", "859812");
+            localStorage.setItem("user",JSON.stringify(userCredential));
                 toast.success('Guest mode login success');
                 navigate("/")
             } catch (error) {
