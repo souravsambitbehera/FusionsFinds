@@ -5,10 +5,10 @@ import { MdOutlineProductionQuantityLimits } from 'react-icons/md'
 import { FaUser, FaCartPlus } from 'react-icons/fa';
 import { AiFillShopping, AiFillPlusCircle, AiFillDelete } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-
+import ProductsShimmer from '../../../shimmer/productShimmer/productsShimmer';
 
 const DashboardTab = () => {
-const {mode,product}= useContext(myContext)
+const {mode,product,loading}= useContext(myContext)
 
   return (
     <div className='container mx-auto'>
@@ -65,6 +65,7 @@ const {mode,product}= useContext(myContext)
 
                                         {/* here i have fetch all my product */}
                                         {
+                                            loading ? <ProductsShimmer/>:
                                             product.map((item,index)=>{
                                                 const {title,price,imageUrl,category,date}=item
                                                 return (
