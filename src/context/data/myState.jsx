@@ -3,7 +3,7 @@ import React, { useState,useEffect } from 'react'
 import myContext from './myContext' 
 import { fireDb } from '../../firebase/FirebaseConfig';
 import { Timestamp, addDoc, collection, onSnapshot, orderBy, query } from 'firebase/firestore';
-import { toast } from 'react-toastify';
+import { toast,ToastContainer } from 'react-toastify';
 
 
 const MyState = (props) => {
@@ -21,11 +21,11 @@ const MyState = (props) => {
       }
     }
     const [products, setProducts] = useState({
-      title: null,
-      price: null,
-      imageUrl: null,
-      category: null,
-      description: null,
+      title: "",
+      price: "",
+      imageUrl: "",
+      category: "",
+      description: "",
       time: Timestamp.now(),
       date: new Date().toLocaleString(
         "en-US",
@@ -39,7 +39,7 @@ const MyState = (props) => {
     })
     // Add Product Section
     const addProduct = async () => {
-      if (products.title == null || products.price == null || products.imageUrl == null || products.category == null || products.description == null) {
+      if (products.title == "" || products.price == "" || products.imageUrl == "" || products.category == "" || products.description == "") {
         return toast.error('Please fill all fields')
       }
       const productRef = collection(fireDb, "products")
@@ -47,6 +47,10 @@ const MyState = (props) => {
       try {
         await addDoc(productRef, products)
         toast.success("Product Add successfully")
+        setTimeout(()=>{
+          window.location.href = "/dashboard"; // Assign the new URL as a string
+
+        },800)
         getProductData()
         setLoading(false)
       } catch (error) {
@@ -91,6 +95,7 @@ const MyState = (props) => {
     <myContext.Provider value={{mode,toggleMode,loading,setLoading,products,setProducts,addProduct,product}}>
         {props.children}
         {/*  provide the value to any children component that use the context of myContext  */}
+        <ToastContainer />
     </myContext.Provider>
   )
 }
