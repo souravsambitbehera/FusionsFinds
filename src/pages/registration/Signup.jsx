@@ -16,6 +16,10 @@ const Signup = () => {
         const {loading , setLoading} = useContext(myContext)
         const navigate = useNavigate()
         const user = JSON.parse(localStorage.getItem('user'))
+    const guestEmail = import.meta.env.VITE_REACT_APP_GUEST_EMAIL;
+    const guestPassword = import.meta.env.VITE_REACT_APP_GUEST_PASSWORD;
+
+
     
 
     useEffect(()=>{
@@ -56,7 +60,7 @@ const Signup = () => {
         }
         const handleGuestLogin = async () => {
             try {
-                const userCredential = await signInWithEmailAndPassword(auth, "sambit@gmail.com", "859812");
+                const userCredential = await signInWithEmailAndPassword(auth,guestEmail, guestPassword);
             localStorage.setItem("user",JSON.stringify(userCredential));
                 toast.success('Guest mode login success');
                 navigate("/")

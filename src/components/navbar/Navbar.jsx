@@ -16,6 +16,8 @@ const Navbar = () => {
     localStorage.clear('user')
     Navigate("/")
   }
+  const adminEmail = import.meta.env.VITE_REACT_APP_ADMIN_EMAIL;
+
   return (
     <div className='bg-white sticky top-0 z-50'>
       {/* Mobile menu */}
@@ -64,7 +66,7 @@ const Navbar = () => {
                     </Link>
                   </div>:""}
 
-                  {user?.user?.email ==="souravsambit12@gmail.com" ? <div className="flow-root">
+                  {user?.user?.email ===adminEmail ? <div className="flow-root">
                     <Link to='/dashboard' className="-m-2 block p-2 font-medium text-gray-900" style={{ color: mode === 'dark' ? 'white' : '', }} onClick={() => setOpen(false)}>
                       admin
                     </Link>
@@ -145,7 +147,7 @@ const Navbar = () => {
                   {user ?<Link to='/order' className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
                     Order
                   </Link> :""}
-                  {user?.user?.email==="souravsambit12@gmail.com" ?<Link to='/dashboard' className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                  {user?.user?.email===adminEmail ?<Link to='/dashboard' className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
                     Admin
                   </Link>:""}
 
