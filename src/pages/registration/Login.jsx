@@ -20,7 +20,10 @@ const Login = () => {
 
     useEffect(()=>{
         if(user){
-            navigate("/")
+            setTimeout(() => {
+                navigate("/")
+            }, 800);
+            
         }
     },[navigate,user])
 
