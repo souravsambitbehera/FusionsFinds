@@ -23,7 +23,7 @@ const HeroSection = () => {
               <img
                 src="hero-image-eccomerce1.png"
                 alt="image with decent dresses"
-                className="w-full relative z-30 lg:pl-20 px-6 py-14"
+                className="w-full relative z-30 lg:pl-16 px-4 py-10"
               />
             </div>
           </div>
