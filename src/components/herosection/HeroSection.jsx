@@ -10,14 +10,14 @@ const HeroSection = () => {
       className="bg-white"
       style={{ backgroundColor: mode === "dark" ? "rgb(62 64 66)" : "" }}
     >
-      <div className="flex flex-col lg:flex-row items-stretch justify-between lg:px-16 px-6 lg:py-10 py-8 2xl:mx-auto 2xl:container">
+      <div className="flex flex-col lg:flex-row items-start justify-between lg:px-12 px-4 lg:py-8 py-1 2xl:mx-auto 2xl:container">
         <div className="z-30 relative lg:w-1/2 ">
           <div
             style={{
               backgroundColor: mode === "dark" ? "#282c34" : "",
               color: mode === "dark" ? "white" : "",
             }}
-            className="hidden  bg-gray-100 w-full lg:w-2/3 lg:h-full lg:flex justify-end items-center"
+            className="hidden bg-gray-100 w-full lg:w-1/2 lg:h-full lg:flex justify-end items-center"
           >
             <div className="w-full lg:w-auto lg:-mr-32">
               <img
@@ -27,8 +27,8 @@ const HeroSection = () => {
               />
             </div>
           </div>
-          <div className="absolute top-0  bg-gray-100 md:h-96 w-full hidden md:block lg:hidden"></div>
-          <div className="w-full h-full lg:hidden">
+          {/* <div className="absolute top-0  bg-gray-100 md:h-96 w-full hidden md:block lg:hidden"></div> */}
+          <div className="hidden w-full h-full lg:hidden">
             <img
               src="hero-image-eccomerce1.png"
               alt="image with decent dresses"
@@ -41,7 +41,7 @@ const HeroSection = () => {
             backgroundColor: mode === "dark" ? "#282c34" : "",
             color: mode === "dark" ? "white" : "",
           }}
-          className="bg-gray-100 lg:w-2/3 lg:ml-16 lg:p-16 p-8 flex items-center"
+          className="lg:bg-gray-100 lg:w-2/3 lg:ml-16 lg:p-16 p-6 flex items-center"
         >
           <div>
             <h1

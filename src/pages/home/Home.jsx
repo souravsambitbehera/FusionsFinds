@@ -13,9 +13,10 @@ const Home = () => {
   return (
     <div>
       <HeroSection />
+      <ProductCard />
       <Track />
       <Filter />
-      <ProductCard />
+      
       <Testimonial />
     </div>
   );
