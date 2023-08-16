@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
-import HeroSection from '../../components/herosection/HeroSection'
-import Track from '../../components/track/Track'
-import Filter from '../../components/filter/Filter'
-import ProductCard from '../../components/productCard/ProductCard'
-import Testimonial from '../../components/testimonial/Testimonial'
+import React, { useContext } from "react";
+import HeroSection from "../../components/herosection/HeroSection";
+import Track from "../../components/track/Track";
+import Filter from "../../components/filter/Filter";
+import ProductCard from "../../components/productCard/ProductCard";
+import Testimonial from "../../components/testimonial/Testimonial";
 
 const Home = () => {
   // const context = useContext(myContext)
@@ -13,12 +13,12 @@ const Home = () => {
   return (
     <div>
       <HeroSection />
-      <Track/>
-      <Filter/>
+      <Track />
+      <Filter />
       <ProductCard />
       <Testimonial />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

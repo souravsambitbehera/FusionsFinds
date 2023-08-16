@@ -1,18 +1,18 @@
-import React, { useContext } from 'react'
-import myContext from '../../context/data/myContext'
-import Navbar from '../../components/navbar/Navbar'
-import Footer from '../../components/footer/Footer'
+import React, { useContext } from "react";
+import myContext from "../../context/data/myContext";
+import Navbar from "../../components/navbar/Navbar";
+import Footer from "../../components/footer/Footer";
 
 const Order = () => {
   // const {name,age}=useContext(myContext)
-  return (<>
-  <Navbar/>
+  return (
+    <>
+      <Navbar />
 
-<div>Order by </div>
-<Footer/>
-  </>
-    
-  )
-}
+      <div>Order by </div>
+      <Footer />
+    </>
+  );
+};
 
-export default Order
+export default Order;

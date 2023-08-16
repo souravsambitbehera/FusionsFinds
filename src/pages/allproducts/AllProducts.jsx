@@ -1,10 +1,8 @@
-import React from 'react'
-import Offer from '../../components/offer/Offer'
+import React from "react";
+import Offer from "../../components/offer/Offer";
 
 const AllProducts = () => {
-  return (
-<Offer/>      
-  )
-}
+  return <Offer />;
+};
 
-export default AllProducts
+export default AllProducts;
