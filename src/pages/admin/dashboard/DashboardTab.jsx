@@ -8,7 +8,9 @@ import { Link } from 'react-router-dom';
 import ProductsShimmer from '../../../shimmer/productShimmer/productsShimmer';
 
 const DashboardTab = () => {
-const {mode,product,loading}= useContext(myContext)
+const {mode,product,loading,
+    deleteProduct,
+    editHandle}= useContext(myContext)
 
   return (
     <div className='container mx-auto'>
