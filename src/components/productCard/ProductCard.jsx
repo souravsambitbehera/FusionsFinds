@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import myContext from "../../context/data/myContext";
+import ProductCardShimmer from "../../shimmer/productShimmer/ProductCardShimmer";
 
 const ProductCard = () => {
-  const { mode,product } = useContext(myContext);
+  const { mode,product,loading } = useContext(myContext);
   const displayProducts = product
   return (
     <section className="text-gray-600 body-font">
@@ -19,10 +20,12 @@ const ProductCard = () => {
 
         <div className="flex flex-wrap justify-center">
           {
+            loading ? <ProductCardShimmer mode={mode}/>:
             displayProducts.map((product,index)=>{
               const {imageUrl,price,title,description} =product
               return (
-                <div className="p-4 lg:w-1/4 md:w-1/3  drop-shadow-lg " key={index}>
+                
+                <div className="p-4 lg:w-1/4 md:w-1/2  drop-shadow-lg " key={index}>
                   <div
                     className="h-full border-2 hover:shadow-gray-100 hover:shadow-2xl transition-shadow duration-300 ease-in-out    border-gray-200 border-opacity-60 rounded-2xl overflow-hidden"
                     style={{
