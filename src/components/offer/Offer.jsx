@@ -10,7 +10,7 @@ const Offer = () => {
         className="bg-white"
         style={{ backgroundColor: mode === "dark" ? "rgb(62 64 66)" : "" }}
       >
-        <div className="px-1 py-10">
+        <div className="px-1 py-8">
           <div
             style={{
               backgroundColor: mode === "dark" ? "#282c34" : "",
