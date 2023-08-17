@@ -4,7 +4,7 @@ import ProductCardShimmer from "../../shimmer/productShimmer/ProductCardShimmer"
 
 const ProductCard = () => {
   const { mode,product,loading } = useContext(myContext);
-  const displayProducts = product
+  const displayProducts = product.slice(0,4)
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-2 md:py-4 lg:px-10 mx-auto">
