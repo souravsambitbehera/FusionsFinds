@@ -7,7 +7,7 @@ const ProductCard = () => {
   const displayProducts = product
   return (
     <section className="text-gray-600 body-font">
-      <div className="container px-5 py-2 md:py-4 mx-auto">
+      <div className="container px-5 py-2 md:py-4 lg:px-10 mx-auto">
         <div className="lg:w-1/2 w-full mb-3 lg:mb-6">
           <h1
             className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"
@@ -25,9 +25,9 @@ const ProductCard = () => {
               const {imageUrl,price,title,description} =product
               return (
                 
-                <div className="p-4 lg:w-1/4 md:w-1/2  drop-shadow-lg " key={index}>
+                <div className="p-4 lg:w-72 md:w-72   drop-shadow-lg " key={index}>
                   <div
-                    className="h-full border-2 hover:shadow-gray-100 hover:shadow-2xl transition-shadow duration-300 ease-in-out    border-gray-200 border-opacity-60 rounded-2xl overflow-hidden"
+                    className=" border-2 hover:shadow-gray-100 hover:shadow-2xl transition-shadow duration-300 ease-in-out    border-gray-200 border-opacity-60 rounded-2xl overflow-hidden"
                     style={{
                       backgroundColor: mode === "dark" ? "rgb(46 49 55)" : "",
                       color: mode === "dark" ? "white" : "",
@@ -35,7 +35,7 @@ const ProductCard = () => {
                   >
                     <div className="flex justify-center cursor-pointer">
                       <img
-                        className=" rounded-2xl w-full h-80  p-2 hover:scale-110 transition-scale-110  duration-300 ease-in-out"
+                        className=" rounded-2xl w-64 h-64  p-2 hover:scale-110 transition-scale-110  duration-300 ease-in-out"
                         src={imageUrl}
                         alt={description}
                       />
