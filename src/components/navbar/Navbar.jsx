@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState } from "react";
+import React, { Fragment, useContext, useEffect, useState } from "react";
 import myContext from "../../context/data/myContext";
 import { Dialog, Transition } from "@headlessui/react";
 import { RxCross2 } from "react-icons/rx";
@@ -20,6 +20,10 @@ const Navbar = () => {
   const adminEmail = import.meta.env.VITE_REACT_APP_ADMIN_EMAIL;
   const cartItems = useSelector(store=>store.cart)
   console.log(cartItems)
+
+  useEffect(()=>{
+    localStorage.setItem("cart", JSON.stringify(cartItems))
+  },[cartItems])
 
   return (
     <div className="bg-white sticky top-0 z-50">
