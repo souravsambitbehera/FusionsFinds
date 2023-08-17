@@ -1,10 +1,25 @@
 import React, { useContext } from "react";
 import myContext from "../../context/data/myContext";
 import ProductCardShimmer from "../../shimmer/productShimmer/ProductCardShimmer";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/cartSlice";
+import { toast } from "react-toastify";
 
 const ProductCard = () => {
   const { mode,product,loading } = useContext(myContext);
   const displayProducts = product.slice(0,4)
+  const dispatch = useDispatch();
+  const handleAddItem = (product)=>{
+    const serializableProduct = {
+      imageUrl: product.imageUrl,
+      description: product.description,
+      price: product.price,
+      date: product.date,
+      category: product.category,
+    };
+    dispatch(addToCart(serializableProduct))
+    toast.success("add to cart successfully")
+  }
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-2 md:py-4 lg:px-10 mx-auto">
@@ -63,6 +78,7 @@ const ProductCard = () => {
                       <div className=" flex justify-center">
                         <button
                           type="button"
+                          onClick={()=>handleAddItem(product)}
                           className="focus:outline-none text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full  py-2"
                         >
                           Add To Cart

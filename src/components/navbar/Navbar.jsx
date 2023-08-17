@@ -5,6 +5,8 @@ import { RxCross2 } from "react-icons/rx";
 import { Link, useNavigate } from "react-router-dom";
 import { BsFillCloudSunFill } from "react-icons/bs";
 import { FiSun } from "react-icons/fi";
+import { useSelector } from "react-redux";
+import store from "../../redux/store";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -16,6 +18,8 @@ const Navbar = () => {
     Navigate("/");
   };
   const adminEmail = import.meta.env.VITE_REACT_APP_ADMIN_EMAIL;
+  const cartItems = useSelector(store=>store.cart)
+  console.log(cartItems)
 
   return (
     <div className="bg-white sticky top-0 z-50">
@@ -327,7 +331,7 @@ const Navbar = () => {
                       className="ml-2 text-sm font-medium text-gray-700 group-"
                       style={{ color: mode === "dark" ? "white" : "" }}
                     >
-                      0
+                      {cartItems.length}
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
                   </Link>
