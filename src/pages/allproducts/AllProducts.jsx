@@ -1,14 +1,41 @@
-import React, { useContext } from "react";
-import Offer from "../../components/offer/Offer";
+import React, { useContext, useState } from "react";
 import myContext from "../../context/data/myContext";
 import ProductCardShimmer from "../../shimmer/productShimmer/ProductCardShimmer";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/cartSlice";
+import { toast } from "react-toastify";
+import Filter from "../../components/filter/Filter";
 
 const AllProducts = () => {
-  const {product,mode,loading}= useContext(myContext)
+  const { mode,product,loading } = useContext(myContext);
   const displayProducts = product
+  const dispatch = useDispatch();
+  function generateUniqueID() {
+    const timestamp = Date.now().toString();
+    const random = Math.floor(Math.random() * 10000).toString();
+    return `${timestamp}-${random}`;
+  }
+  
+  const handleAddItem = (product)=>{
+    const serializableProduct = {
+      imageUrl: product.imageUrl,
+      description: product.description,
+      price: product.price,
+      date: product.date,
+      time:product.time.toDate().toString(),
+      id:generateUniqueID(),
+      title:product.title,
+
+      category: product.category,
+    };
+    dispatch(addToCart(serializableProduct))
+    toast.success("add to cart successfully")
+  }
   return (
     <>
-    <Offer/>
+    {/* <Offer/> */}
+    <Filter />
+    
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-2 md:py-4 lg:px-10 mx-auto">
         <div className="lg:w-1/2 w-full mb-3 lg:mb-6">
@@ -66,6 +93,7 @@ const AllProducts = () => {
                       <div className=" flex justify-center">
                         <button
                           type="button"
+                          onClick={()=>handleAddItem(product)}
                           className="focus:outline-none text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full  py-2"
                         >
                           Add To Cart
