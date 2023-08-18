@@ -15,6 +15,7 @@ const ProductCard = () => {
       description: product.description,
       price: product.price,
       date: product.date,
+      title:product.title,
       category: product.category,
     };
     dispatch(addToCart(serializableProduct))

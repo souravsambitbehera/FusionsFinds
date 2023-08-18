@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import myContext from "../../context/data/myContext";
 import Modal from "../../components/modal/Modal";
+import { useSelector } from "react-redux";
 
 const Cart = () => {
   const {mode}= useContext(myContext)
+  const cartItems = useSelector(store=>store.cart);
   return (
     <div
       className="h-50vh bg-gray-100 pt-5 pb-5 "
@@ -15,7 +17,12 @@ const Cart = () => {
       <h1 className="mb-6 text-center text-2xl font-bold">Cart Items</h1>
       <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0 ">
         <div className="rounded-lg md:w-2/3 ">
-          <div
+          {
+            cartItems.map((item,index)=>{
+              console.log(item)
+              const {imageUrl,title,price} =item
+              return (
+<div key={index+1}
             className="justify-between mb-6 rounded-lg border  drop-shadow-xl bg-white p-6  sm:flex  sm:justify-start"
             style={{
               backgroundColor: mode === "dark" ? "rgb(32 33 34)" : "",
@@ -23,7 +30,7 @@ const Cart = () => {
             }}
           >
             <img
-              src="https://dummyimage.com/400x400"
+              src={imageUrl}
               alt="product-image"
               className="w-full rounded-lg sm:w-40"
             />
@@ -33,7 +40,7 @@ const Cart = () => {
                   className="text-lg font-bold text-gray-900"
                   style={{ color: mode === "dark" ? "white" : "" }}
                 >
-                  This is title
+                  {title}
                 </h2>
                 <h2
                   className="text-sm  text-gray-900"
@@ -45,7 +52,7 @@ const Cart = () => {
                   className="mt-1 text-xs font-semibold text-gray-700"
                   style={{ color: mode === "dark" ? "white" : "" }}
                 >
-                  ₹100
+                  {price}
                 </p>
                 <div
                   className="mt-4 text-lg font-semibold text-gray-900"
@@ -72,6 +79,10 @@ const Cart = () => {
               </div>
             </div>
           </div>
+              )
+            })
+          }
+          
         </div>
 
         <div
