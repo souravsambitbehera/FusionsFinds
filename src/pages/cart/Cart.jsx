@@ -133,7 +133,7 @@ const CartItem = ({ item, deleteCart, mode }) => {
                     >
                       {price}
                     </p>
-                    <div
+                    {/* <div
                       className="mt-4 text-lg font-semibold text-gray-900"
                       style={{ color: mode === "dark" ? "white" : "" }}
                     >
@@ -154,7 +154,7 @@ const CartItem = ({ item, deleteCart, mode }) => {
                       className=" p-1 bg-[#252525] text-gray-100 rounded-md  text-xs disabled:cursor-not-allowed">
                       <AiOutlinePlus className=""/> 
                       </button>
-                    </div>
+                    </div> */}
                   </div>
                   <div onClick={()=>deleteCart(item)} className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                     <svg
