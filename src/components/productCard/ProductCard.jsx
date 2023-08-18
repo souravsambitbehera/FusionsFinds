@@ -9,13 +9,22 @@ const ProductCard = () => {
   const { mode,product,loading } = useContext(myContext);
   const displayProducts = product.slice(0,4)
   const dispatch = useDispatch();
+  function generateUniqueID() {
+    const timestamp = Date.now().toString();
+    const random = Math.floor(Math.random() * 10000).toString();
+    return `${timestamp}-${random}`;
+  }
+  
   const handleAddItem = (product)=>{
     const serializableProduct = {
       imageUrl: product.imageUrl,
       description: product.description,
       price: product.price,
       date: product.date,
+      time:product.time.toDate().toString(),
+      id:generateUniqueID(),
       title:product.title,
+
       category: product.category,
     };
     dispatch(addToCart(serializableProduct))

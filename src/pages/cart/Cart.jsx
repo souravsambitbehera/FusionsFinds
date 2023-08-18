@@ -1,11 +1,16 @@
 import React, { useContext } from "react";
 import myContext from "../../context/data/myContext";
 import Modal from "../../components/modal/Modal";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteFromCart } from "../../redux/cartSlice";
 
 const Cart = () => {
   const {mode}= useContext(myContext)
+  const dispatch = useDispatch()
   const cartItems = useSelector(store=>store.cart);
+  const deleteCart =(item)=>{
+    dispatch(deleteFromCart(item))
+  }
   return (
     <div
       className="h-50vh bg-gray-100 pt-5 pb-5 "
@@ -19,8 +24,9 @@ const Cart = () => {
         <div className="rounded-lg md:w-2/3 ">
           {
             cartItems.map((item,index)=>{
-              console.log(item)
-              const {imageUrl,title,price} =item
+              // console.log(item)
+              const {imageUrl,title,price,time} =item
+              console.log(time)
               return (
 <div key={index+1}
             className="justify-between mb-6 rounded-lg border  drop-shadow-xl bg-white p-6  sm:flex  sm:justify-start"
@@ -61,7 +67,7 @@ const Cart = () => {
                   Quantity 
                 </div>
               </div>
-              <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
+              <div onClick={()=>deleteCart(item)} className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -69,6 +75,7 @@ const Cart = () => {
                   strokeWidth={1.5}
                   stroke="currentColor"
                   className="w-6 h-6"
+                  
                 >
                   <path
                     strokeLinecap="round"

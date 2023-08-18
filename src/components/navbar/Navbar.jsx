@@ -19,7 +19,7 @@ const Navbar = () => {
   };
   const adminEmail = import.meta.env.VITE_REACT_APP_ADMIN_EMAIL;
   const cartItems = useSelector(store=>store.cart)
-  console.log(cartItems)
+  // console.log(cartItems)
 
   useEffect(()=>{
     localStorage.setItem("cart", JSON.stringify(cartItems))
