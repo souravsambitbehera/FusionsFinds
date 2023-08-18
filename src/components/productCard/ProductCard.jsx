@@ -4,10 +4,13 @@ import ProductCardShimmer from "../../shimmer/productShimmer/ProductCardShimmer"
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/cartSlice";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const ProductCard = () => {
   const { mode,product,loading } = useContext(myContext);
   const displayProducts = product.slice(0,4)
+  const user = JSON.parse(localStorage.getItem("user"));
+
   const dispatch = useDispatch();
   function generateUniqueID() {
     const timestamp = Date.now().toString();
@@ -48,6 +51,7 @@ const ProductCard = () => {
             loading ? <ProductCardShimmer mode={mode}/>:
             displayProducts.map((product,index)=>{
               const {imageUrl,price,title,description} =product
+              console.log(product.id)
               return (
                 
                 <div className="p-4 lg:w-72 md:w-72   drop-shadow-lg " key={index}>
@@ -86,13 +90,23 @@ const ProductCard = () => {
                         {price}
                       </p>
                       <div className=" flex justify-center">
-                        <button
+                        {
+                          user ? <button
                           type="button"
                           onClick={()=>handleAddItem(product)}
                           className="focus:outline-none text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full  py-2"
                         >
                           Add To Cart
-                        </button>
+                        </button> :
+                          <Link to="/signup"
+                          className="focus:outline-none text-center text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full  py-2"
+                        >
+                          Add To Cart
+                        </Link>
+                        
+                        
+                        }
+                        
                       </div>
                     </div>
                   </div>

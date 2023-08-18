@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ProductCardShimmer = ({mode}) => {
-    const shimmerArray = Array.from({ length: 10 });
+    const shimmerArray = Array.from({ length: 8 });
     return (
         <>
       {shimmerArray.map((_, index) => (
