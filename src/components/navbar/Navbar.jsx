@@ -311,7 +311,8 @@ const Navbar = () => {
                 </div>
 
                 {/* Cart */}
-                <div className="ml-4 flow-root lg:ml-6">
+                {
+                  user ? <div className="ml-4 flow-root lg:ml-6">
                   <Link
                     to="/cart"
                     className="group -m-2 flex items-center p-2"
@@ -340,7 +341,9 @@ const Navbar = () => {
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
                   </Link>
-                </div>
+                </div>:""
+                }
+                
               </div>
             </div>
           </div>

@@ -6,6 +6,8 @@ import { clearCart, deleteFromCart } from "../../redux/cartSlice";
 import { fireDb } from "../../firebase/FirebaseConfig";
 import { addDoc, collection } from "firebase/firestore";
 import { toast, ToastContainer } from "react-toastify";
+import Footer from "../../components/footer/Footer";
+import Navbar from "../../components/navbar/Navbar";
 
 const Cart = () => {
   const {mode}= useContext(myContext)
@@ -114,6 +116,8 @@ const Cart = () => {
   const grandTotal = shipping + totalAmount
 
   return (
+    <>
+    <Navbar/>
     <div
       className="h-50vh bg-gray-100 pt-5 pb-5 "
       style={{
@@ -207,6 +211,8 @@ const Cart = () => {
         
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 
