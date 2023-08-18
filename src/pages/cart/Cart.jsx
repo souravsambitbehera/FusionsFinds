@@ -2,12 +2,101 @@ import React, { useContext, useEffect, useState } from "react";
 import myContext from "../../context/data/myContext";
 import Modal from "../../components/modal/Modal";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteFromCart } from "../../redux/cartSlice";
-import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+import { clearCart, deleteFromCart } from "../../redux/cartSlice";
+import { fireDb } from "../../firebase/FirebaseConfig";
+import { addDoc, collection } from "firebase/firestore";
+import { toast, ToastContainer } from "react-toastify";
+
 const Cart = () => {
   const {mode}= useContext(myContext)
   const dispatch = useDispatch()
   const cartItems = useSelector(store=>store.cart);
+  const [name, setName] = useState("Dummy Name")
+  const [address, setAddress] = useState("Dummy Address");
+  const [pincode, setPincode] = useState("898988")
+  const [phoneNumber, setPhoneNumber] = useState("9888778999")
+  const key = import.meta.env.VITE_REACT_APP_KEY;
+  const key_secret = import.meta.env.VITE_REACT_APP_KEY_SECRET;
+
+
+  const buyNow = async () => {
+    // validation 
+    if (name === "" || address == "" || pincode == "" || phoneNumber == "") {
+      return toast.error("All fields are required", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      })
+    }
+    const addressInfo = {
+      name,
+      address,
+      pincode,
+      phoneNumber,
+      date: new Date().toLocaleString(
+        "en-US",
+        {
+          month: "short",
+          day: "2-digit",
+          year: "numeric",
+        }
+      )
+    }
+    console.log(addressInfo)
+
+    var options = {
+      key: key,
+      key_secret: key_secret,
+      amount: parseInt(grandTotal * 100),
+      currency: "INR",
+      order_receipt: 'order_receipt_' + name,
+      name: "FusionsFinds",
+      description: "for testing purpose",
+      handler: function (response) {
+
+        // console.log(response)
+        dispatch(clearCart());
+
+        toast.success('Payment Successful')
+
+        const paymentId = response.razorpay_payment_id
+        // store in firebase 
+        const orderInfo = {
+          cartItems,
+          addressInfo,
+          date: new Date().toLocaleString(
+            "en-US",
+            {
+              month: "short",
+              day: "2-digit",
+              year: "numeric",
+            }
+          ),
+          email: JSON.parse(localStorage.getItem("user")).user.email,
+          userid: JSON.parse(localStorage.getItem("user")).user.uid,
+          paymentId
+        }
+
+        try {
+          const result = addDoc(collection(fireDb, "orders"), orderInfo)
+        } catch (error) {
+          console.log(error)
+        }
+      },
+
+      theme: {
+        color: "#3399cc"
+      }
+    };
+    var pay = new window.Razorpay(options);
+    pay.open();
+    console.log(pay)
+  }
   const deleteCart =(item)=>{
     dispatch(deleteFromCart(item))
   }
@@ -102,7 +191,16 @@ const Cart = () => {
               </div>
             </div>
             {/* <Modal  /> */}
-            <Modal />
+            <Modal
+            name={name} 
+            address={address} 
+            pincode={pincode} 
+            phoneNumber={phoneNumber} 
+            setName={setName} 
+            setAddress={setAddress} 
+            setPincode={setPincode} 
+            setPhoneNumber={setPhoneNumber} 
+            buyNow={buyNow}  />
           </div>:
               ""
           }
@@ -148,28 +246,7 @@ const CartItem = ({ item, deleteCart, mode }) => {
                     >
                       {price}
                     </p>
-                    {/* <div
-                      className="mt-4 text-lg font-semibold text-gray-900"
-                      style={{ color: mode === "dark" ? "white" : "" }}
-                    >
-                     <span className="pr-3">Quantity:</span> 
-                      <button onClick={()=>{
-                        if(quantity>1){
-                          setQuantity(quantity-1)
-                        }else{
-                          deleteCart(item)
-                        }
-                      }}
-                      className=" p-1 bg-[#252525] text-gray-100 rounded-md  text-xs disabled:cursor-not-allowed">
-                      <AiOutlineMinus  /> 
-                      </button>
-                      
-                      <span className="px-4">{quantity}</span>
-                      <button onClick={()=>setQuantity(quantity+1)}
-                      className=" p-1 bg-[#252525] text-gray-100 rounded-md  text-xs disabled:cursor-not-allowed">
-                      <AiOutlinePlus className=""/> 
-                      </button>
-                    </div> */}
+                   
                   </div>
                   <div onClick={()=>deleteCart(item)} className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                     <svg
