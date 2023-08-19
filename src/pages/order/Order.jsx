@@ -22,8 +22,8 @@ const Order = () => {
                       order.cartItems.map((item,index) => {
                         return (
                           <div key={index+1} className="rounded-lg md:w-2/3">
-                            <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start" style={{ backgroundColor: mode === 'dark' ? '#282c34' : '', color: mode === 'dark' ? 'white' : '', }}>
-                              <img src={item.imageUrl} alt="product-image" className="w-full rounded-lg sm:w-40" />
+                            <div className="justify-between flex-col mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start" style={{ backgroundColor: mode === 'dark' ? '#282c34' : '', color: mode === 'dark' ? 'white' : '', }}>
+                              <img src={item.imageUrl} alt="product-image" className="w-52 h-52 rounded-lg sm:w-40" />
                               <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                                 <div className="mt-5 sm:mt-0">
                                   <h2 className="text-lg font-bold text-gray-900" style={{ color: mode === 'dark' ? 'white' : '' }}>{item.title}</h2>
