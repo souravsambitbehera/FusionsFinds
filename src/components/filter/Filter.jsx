@@ -42,6 +42,11 @@ const Filter = () => {
           <div className="flex items-center justify-between mt-4">
             <p className="font-medium">Filters</p>
             <button
+            onClick={()=>{
+              setFilterPrice('')
+              setFilterType("")
+              setSearchkey("")
+            }}
               className="px-4 py-2 bg-gray-50hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md"
               style={{ color: mode === "dark" ? "white" : "" }}
             >
@@ -57,6 +62,7 @@ const Filter = () => {
                   color: mode === "dark" ? "white" : "",
                 }}
               >
+                <option value="">Select a category</option>
                 {
                   product.map((item,index)=>{
                     return(
@@ -73,6 +79,8 @@ const Filter = () => {
                   color: mode === "dark" ? "white" : "",
                 }}
               >
+                <option value="">Select a Price</option>
+
                 {product.map((item, index) => {
                                 return (
                                     <option key={index+1} value={item.price}>{item.price}</option>

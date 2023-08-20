@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import Filter from "../../components/filter/Filter";
 
 const AllProducts = () => {
-  const { mode,product,loading } = useContext(myContext);
+  const { mode,product,loading,searchkey,setSearchkey,filterType,setFilterType,setFilterPrice,filterPrice } = useContext(myContext);
   const displayProducts = product
   const dispatch = useDispatch();
   function generateUniqueID() {
@@ -51,7 +51,9 @@ const AllProducts = () => {
         <div className="flex flex-wrap justify-center">
           {
             loading ? <ProductCardShimmer mode={mode}/>:
-            displayProducts.map((product,index)=>{
+            product.filter((obj) => obj.title.toLowerCase().includes(searchkey))
+                        .filter((obj) => obj.category.toLowerCase().includes(filterType))
+                        .filter((obj) => obj.price.includes(filterPrice)).map((product, index) =>{
               const {imageUrl,price,title,description} =product
               return (
                 
