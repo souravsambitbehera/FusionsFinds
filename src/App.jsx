@@ -16,6 +16,7 @@ import AddProduct from "./pages/admin/pages/AddProduct";
 import UppdateProduct from "./pages/admin/pages/UppdateProduct";
 import { ProtectedRoutesForAdmin } from "./routes/ProtectedRoutesForAdmin";
 import ProtectedRoutes from "./routes/ProtectedRoutes";
+import ProductInfo from "./pages/productInfo/ProductInfo";
 
 function App() {
   return (
@@ -42,7 +43,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-
+      {
+        path:"/productinfo/:id",
+        element:<ProductInfo/>
+      },
       
 
       {

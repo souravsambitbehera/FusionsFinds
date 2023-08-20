@@ -4,7 +4,7 @@ import ProductCardShimmer from "../../shimmer/productShimmer/ProductCardShimmer"
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/cartSlice";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ProductCard = () => {
   const {
@@ -20,7 +20,7 @@ const ProductCard = () => {
   } = useContext(myContext);
   const displayProducts = product.slice(0, 4);
   const user = JSON.parse(localStorage.getItem("user"));
-
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   function generateUniqueID() {
     const timestamp = Date.now().toString();
@@ -71,6 +71,7 @@ const ProductCard = () => {
                   <div
                     className=" p-4 lg:w-72 md:w-72   drop-shadow-lg "
                     key={index}
+                    onClick={()=>navigate(`/productinfo/${product.id}`)}
                   >
                     <div
                       className="font-roboto border-2 hover:shadow-gray-100 hover:shadow-2xl transition-shadow duration-300 ease-in-out    border-gray-200 border-opacity-60 rounded-2xl overflow-hidden"
