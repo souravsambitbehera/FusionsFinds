@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
-import myContext from "../../context/data/myContext";
+import myContext from "../context/data/myContext";
+import './Shimmer.css'
+
 const ProductsShimmer = () => {
   const { mode } = useContext(myContext);
   return (
@@ -13,19 +15,19 @@ const ProductsShimmer = () => {
           }}
           key={index}
         >
-          <td className="px-6 py-4 text-black skeleton">Loading...</td>
+          <td className="px-6 py-4 text-black shimmer">Loading...</td>
           <th
             scope="row"
             className="px-6 py-4 font-medium text-black skeleton"
           ></th>
-          <td className="px-6 py-4 text-black skeleton"></td>
-          <td className="px-6 py-4 text-black skeleton"></td>
-          <td className="px-6 py-4 text-black skeleton"></td>
-          <td className="px-6 py-4 text-black skeleton"></td>
+          <td className="px-6 py-4 text-black shimmer"></td>
+          <td className="px-6 py-4 text-black shimmer"></td>
+          <td className="px-6 py-4 text-black shimmer"></td>
+          <td className="px-6 py-4 text-black shimmer"></td>
           <td className="px-6 py-4">
             <div className="flex gap-2">
               <div
-                className="flex gap-2 cursor-pointer text-black skeleton"
+                className="flex gap-2 cursor-pointer text-black shimmer"
                 style={{ color: mode === "dark" ? "white" : "" }}
               >
                 <div>

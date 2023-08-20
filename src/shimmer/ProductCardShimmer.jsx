@@ -1,4 +1,5 @@
 import React from 'react'
+import './Shimmer.css'
 
 const ProductCardShimmer = ({mode}) => {
     const shimmerArray = Array.from({ length: 8 });
@@ -11,12 +12,12 @@ const ProductCardShimmer = ({mode}) => {
               mode === "dark" ? "bg-gray-700" : "bg-gray-200"
             }`}
           >
-            <div className="w-full h-64 bg-gray-100 p-2"></div>
-            <div className="p-5 border-t-2">
-              <div className="h-4 bg-gray-100 mb-2"></div>
-              <div className="h-6 bg-gray-100 mb-3"></div>
-              <div className="h-4 bg-gray-100 mb-1"></div>
-              <div className="h-8 bg-gray-100"></div>
+            <div className="w-full h-64 bg-gray-100 p-2 shimmer"></div>
+            <div className="p-5 border-t-2 shimmer">
+              <div className="h-4 bg-gray-100 mb-2 shimmer"></div>
+              <div className="h-6 bg-gray-100 mb-3 shimmer"></div>
+              <div className="h-4 bg-gray-100 mb-1 shimmer"></div>
+              <div className="h-8 bg-gray-100 shimmer"></div>
             </div>
           </div>
         </div>

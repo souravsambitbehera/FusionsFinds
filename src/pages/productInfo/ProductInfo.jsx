@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../redux/cartSlice';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
+import ProductInfoShimmer from '../../shimmer/ProductInfoShimmer';
 
 const ProductInfo = () => {
     const context = useContext(myContext);
@@ -66,7 +67,7 @@ const ProductInfo = () => {
   return (
     <section className="text-gray-600 font-roboto overflow-hidden">
     <div className="container px-5 py-10 mx-auto">
-        {products && 
+        {loading ?<ProductInfoShimmer/> :
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
             <img
                 alt="ecommerce"
@@ -205,7 +206,9 @@ const ProductInfo = () => {
                     
                 </div>
             </div>
-        </div>}
+        </div>
+        
+        }
     </div>
 </section>
   )

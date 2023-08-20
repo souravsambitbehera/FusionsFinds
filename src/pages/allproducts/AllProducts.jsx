@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import myContext from "../../context/data/myContext";
-import ProductCardShimmer from "../../shimmer/productShimmer/ProductCardShimmer";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/cartSlice";
 import { toast } from "react-toastify";
 import Filter from "../../components/filter/Filter";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
+import ProductCardShimmer from "../../shimmer/ProductCardShimmer";
 
 const AllProducts = () => {
   const {

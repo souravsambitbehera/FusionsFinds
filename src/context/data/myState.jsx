@@ -142,10 +142,10 @@ const MyState = (props) => {
         setLoading(false)
       });
       setOrder(ordersArray);
-      console.log(ordersArray)
+      // console.log(ordersArray)
       setLoading(false);
     } catch (error) {
-      console.log(error)
+      // console.log(error)
       setLoading(false)
     }
   }
