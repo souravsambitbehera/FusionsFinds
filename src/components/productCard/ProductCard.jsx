@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 
 const ProductCard = () => {
-  const { mode,product,loading } = useContext(myContext);
+  const { mode,product,loading,searchkey,setSearchkey,filterType,setFilterType,setFilterPrice,filterPrice } = useContext(myContext);
   const displayProducts = product.slice(0,4)
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -49,7 +49,9 @@ const ProductCard = () => {
         <div className="flex flex-wrap justify-center">
           {
             loading ? <ProductCardShimmer mode={mode}/>:
-            displayProducts.map((product,index)=>{
+            product.filter((obj) => obj.title.toLowerCase().includes(searchkey))
+                        .filter((obj) => obj.category.toLowerCase().includes(filterType))
+                        .filter((obj) => obj.price.includes(filterPrice)).map((product, index) =>{
               const {imageUrl,price,title,description} =product
               console.log(product.id)
               return (

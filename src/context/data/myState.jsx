@@ -155,6 +155,9 @@ const MyState = (props) => {
     getProductData();
     getOrderData();
   }, []);
+  const [searchkey, setSearchkey] = useState('')
+  const [filterType, setFilterType] = useState('')
+  const [filterPrice, setFilterPrice] = useState('')
 
   return (
     <myContext.Provider
@@ -170,7 +173,7 @@ const MyState = (props) => {
         updateProduct,
         deleteProduct,
         editHandle,
-        order
+        order,searchkey,setSearchkey,filterType,setFilterType,setFilterPrice,filterPrice
       }}
     >
       {props.children}
