@@ -45,13 +45,13 @@ const HeroSection = () => {
         >
           <div>
             <h1
-              className=" md:w-8/12 lg:w-10/12 xl:8/12 2xl:w-8/12 w-full xl:text-4xl sm:text-3xl text-2xl font-semibold text-gray-800 capitalize"
+              className=" md:w-8/12 lg:w-10/12 xl:8/12 2xl:w-8/12 w-full xl:text-4xl sm:text-3xl text-2xl font-serif  text-gray-800 capitalize"
               style={{ color: mode === "dark" ? "white" : "" }}
             >
               Discover Unique Dress Crafts and Stylish Shoes
             </h1>
             <p
-              className=" md:w-9/12 lg:w-11/12 xl:w-10/12 2xl:9/12 text-sm leading-normal text-gray-600 mt-5"
+              className=" md:w-9/12 lg:w-11/12 xl:w-10/12 2xl:9/12 text-sm leading-normal font-mono text-gray-600 mt-5"
               style={{ color: mode === "dark" ? "white" : "" }}
             >
               Explore our handpicked collection of exquisite dress crafts and
@@ -65,7 +65,7 @@ const HeroSection = () => {
                   backgroundColor: mode === "dark" ? "rgb(80 82 87)" : "",
                   color: mode === "dark" ? "white" : "",
                 }}
-                className=" sm:w-auto w-full mt-8 text-base justify-between focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 focus:outline-none hover:bg-gray-700 font-medium leading-none text-white py-4 px-8 bg-gray-800 flex items-center"
+                className="font-roboto sm:w-auto w-full mt-8 text-base justify-between focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 focus:outline-none hover:bg-gray-700 font-normal leading-none text-white py-4 px-8 bg-gray-800 flex items-center"
               >
                 Explore
                 <div className="ml-2 mt-0.5">

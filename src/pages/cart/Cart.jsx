@@ -233,9 +233,9 @@ const CartItem = ({ item, deleteCart, mode }) => {
                   className="w-full rounded-lg sm:w-40"
                 />
                 <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
-                  <div className="mt-5 sm:mt-0">
+                  <div className=" mt-5 sm:mt-0">
                     <h2
-                      className="text-lg font-bold text-gray-900"
+                      className="font-montserrat text-lg font-bold text-gray-700"
                       style={{ color: mode === "dark" ? "white" : "" }}
                     >
                       {title}
@@ -247,7 +247,7 @@ const CartItem = ({ item, deleteCart, mode }) => {
                       FusionsFinds
                     </h2>
                     <p
-                      className="mt-1 text-xs font-semibold text-gray-700"
+                      className="font-roboto mt-1 text-xs font-semibold text-gray-700"
                       style={{ color: mode === "dark" ? "white" : "" }}
                     >
                       {price}

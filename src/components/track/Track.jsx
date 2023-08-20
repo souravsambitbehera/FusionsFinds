@@ -58,12 +58,12 @@ const TrackChilld = (props) => {
         </svg>
 
         <h2
-          className="title-font font-medium text-lg text-gray-900"
+          className="title-font font-medium font-serif text-lg text-gray-900"
           style={{ color: mode === "dark" ? "white" : "" }}
         >
           {heading}
         </h2>
-        <p className="leading-relaxed">{text}</p>
+        <p className="leading-relaxed font-roboto">{text}</p>
       </div>
     </div>
   );

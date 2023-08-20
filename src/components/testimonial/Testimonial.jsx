@@ -5,7 +5,7 @@ const Testimonial = () => {
   const { mode } = useContext(myContext);
   return (
     <div>
-      <section className="text-gray-600 body-font mb-10">
+      <section className="text-gray-600 font-roboto mb-10">
         <div className="container px-5 py-10 mx-auto">
           <h1
             className=" text-center text-3xl font-bold text-black"

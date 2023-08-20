@@ -7,7 +7,7 @@ const Footer = () => {
   const { toggleMode, mode } = context;
   return (
     <footer
-      className="text-gray-600 body-font bg-gray-300"
+      className="text-gray-600 font-roboto bg-gray-300"
       style={{
         backgroundColor: mode === "dark" ? "rgb(46 49 55)" : "",
         color: mode === "dark" ? "white" : "",
@@ -17,7 +17,7 @@ const Footer = () => {
         <div className="flex flex-wrap md:text-left text-center order-first">
           <div className="lg:w-1/4 md:w-1/2 w-full px-4">
             <h2
-              className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3"
+              className="font-montserrat font-medium text-gray-900 tracking-widest text-sm mb-3"
               style={{ color: mode === "dark" ? "white" : "" }}
             >
               CATEGORIES
@@ -55,7 +55,7 @@ const Footer = () => {
           </div>
           <div className="lg:w-1/4 md:w-1/2 w-full px-4">
             <h2
-              className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3 uppercase"
+              className="font-montserrat font-medium text-gray-900 tracking-widest text-sm mb-3 uppercase"
               style={{ color: mode === "dark" ? "white" : "" }}
             >
               Customer Service
@@ -93,10 +93,10 @@ const Footer = () => {
 
           <div className="lg:w-1/4 md:w-1/2 w-full px-4">
             <h2
-              className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3"
+              className="font-montserrat font-medium text-gray-900 tracking-widest text-sm mb-3"
               style={{ color: mode === "dark" ? "white" : "" }}
             >
-              Services
+              SERVICES
             </h2>
             <nav className="list-none mb-10">
               <li>

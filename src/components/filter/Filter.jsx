@@ -3,12 +3,21 @@ import myContext from "../../context/data/myContext";
 
 const Filter = () => {
   const context = useContext(myContext);
-  const { mode,searchkey,setSearchkey,filterType,setFilterType,setFilterPrice,filterPrice,product } = context;
+  const {
+    mode,
+    searchkey,
+    setSearchkey,
+    filterType,
+    setFilterType,
+    setFilterPrice,
+    filterPrice,
+    product,
+  } = context;
   return (
     <div>
       <div className=" container mx-auto px-4 mt-5 ">
         <div
-          className="p-5 rounded-lg bg-gray-100 drop-shadow-xl border border-gray-200"
+          className="p-5 rounded-lg font-roboto bg-gray-100 drop-shadow-xl border border-gray-200"
           style={{
             backgroundColor: mode === "dark" ? "#282c34" : "",
             color: mode === "dark" ? "white" : "",
@@ -30,7 +39,7 @@ const Filter = () => {
               name="searchkey"
               id="searchkey"
               value={searchkey}
-              onChange={(e)=>setSearchkey(e.target.value)}
+              onChange={(e) => setSearchkey(e.target.value)}
               placeholder="Search here"
               className="px-8 py-3 w-full rounded-md bg-violet-0 border-transparent outline-0 text-sm"
               style={{
@@ -42,11 +51,11 @@ const Filter = () => {
           <div className="flex items-center justify-between mt-4">
             <p className="font-medium">Filters</p>
             <button
-            onClick={()=>{
-              setFilterPrice('')
-              setFilterType("")
-              setSearchkey("")
-            }}
+              onClick={() => {
+                setFilterPrice("");
+                setFilterType("");
+                setSearchkey("");
+              }}
               className="px-4 py-2 bg-gray-50hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md"
               style={{ color: mode === "dark" ? "white" : "" }}
             >
@@ -55,7 +64,9 @@ const Filter = () => {
           </div>
           <div>
             <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-4">
-              <select value={filterType} onChange={(e)=>setFilterType(e.target.value)}
+              <select
+                value={filterType}
+                onChange={(e) => setFilterType(e.target.value)}
                 className="px-4 py-3 w-full rounded-md bg-gray-50 border-transparent outline-0 focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                 style={{
                   backgroundColor: mode === "dark" ? "rgb(64 66 70)" : "",
@@ -63,16 +74,17 @@ const Filter = () => {
                 }}
               >
                 <option value="">Select a category</option>
-                {
-                  product.map((item,index)=>{
-                    return(
-                <option key={index+1} value={item.category}>{item.category}</option>
-
-                    )
-                  })
-                }
+                {product.map((item, index) => {
+                  return (
+                    <option key={index + 1} value={item.category}>
+                      {item.category}
+                    </option>
+                  );
+                })}
               </select>
-              <select value={filterPrice} onChange={(e)=>setFilterPrice(e.target.value)}
+              <select
+                value={filterPrice}
+                onChange={(e) => setFilterPrice(e.target.value)}
                 className="px-4 py-3 w-full rounded-md bg-gray-50 border-transparent outline-0  focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
                 style={{
                   backgroundColor: mode === "dark" ? "rgb(64 66 70)" : "",
@@ -82,10 +94,12 @@ const Filter = () => {
                 <option value="">Select a Price</option>
 
                 {product.map((item, index) => {
-                                return (
-                                    <option key={index+1} value={item.price}>{item.price}</option>
-                                )
-                            })}
+                  return (
+                    <option key={index + 1} value={item.price}>
+                      {item.price}
+                    </option>
+                  );
+                })}
               </select>
             </div>
           </div>

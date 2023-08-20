@@ -27,7 +27,7 @@ const Navbar = () => {
   },[cartItems])
 
   return (
-    <div className="bg-white sticky top-0 z-50">
+    <div className=" bg-white sticky top-0 z-50">
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
@@ -69,10 +69,10 @@ const Navbar = () => {
                     <RxCross2 className="h-6 w-6" />
                   </button>
                 </div>
-                <div className="space-y-6 border-t border-gray-200 px-4 py-6">
+                <div className="font-montserrat space-y-6 border-t border-gray-200 px-4 py-6">
                   <Link
                     to="/allproducts"
-                    className="text-sm font-medium text-gray-900 "
+                    className="text-sm  font-medium text-gray-900 "
                     style={{ color: mode === "dark" ? "white" : "" }}
                     onClick={() => setOpen(false)}
                   >
@@ -162,7 +162,7 @@ const Navbar = () => {
       {/* desktop  */}
       <header className="relative bg-white">
         <p
-          className="flex h-10 items-center justify-center bg-emerald-300 px-4 text-sm font-medium text-white sm:px-6 lg:px-8"
+          className="font-serif flex h-10 items-center justify-center bg-emerald-300 px-4 text-sm font-medium text-white sm:px-6 lg:px-8"
           style={{
             backgroundColor: mode === "dark" ? "rgb(62 64 66)" : "",
             color: mode === "dark" ? "white" : "",
@@ -173,7 +173,7 @@ const Navbar = () => {
 
         <nav
           aria-label="Top"
-          className="bg-gray-100 px-4 sm:px-6 lg:px-8 shadow-xl "
+          className="font-montserrat bg-gray-100 px-4 sm:px-6 lg:px-8 shadow-xl "
           style={{
             backgroundColor: mode === "dark" ? "#282c34" : "",
             color: mode === "dark" ? "white" : "",
@@ -212,7 +212,7 @@ const Navbar = () => {
                 <Link to="/" className="flex">
                   <div className="flex ">
                     <h1
-                      className=" text-2xl font-bold text-black  px-2 py-1 rounded"
+                      className=" text-2xl font-semibold text-black  px-2 py-1 rounded"
                       style={{ color: mode === "dark" ? "white" : "" }}
                     >
                       FusionsFinds
