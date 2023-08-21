@@ -72,7 +72,7 @@ const AllProducts = () => {
               product
                 .filter((obj) => obj.title.toLowerCase().includes(searchkey))
                 .filter((obj) =>
-                  obj.category.toLowerCase().includes(filterType)
+                  obj.category.includes(filterType)
                 )
                 .filter((obj) => obj.price.includes(filterPrice))
                 .map((product, index) => {

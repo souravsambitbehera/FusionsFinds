@@ -61,9 +61,9 @@ const ProductCard = () => {
             <ProductCardShimmer mode={mode} />
           ) : (
             displayProducts
-              .filter((obj) => obj.title.toLowerCase().includes(searchkey))
-              .filter((obj) => obj.category.toLowerCase().includes(filterType))
-              .filter((obj) => obj.price.includes(filterPrice))
+            .filter((product) => product.title.toLowerCase().includes(searchkey.toLowerCase()))
+            .filter((product) => filterType === "" || product.category.includes(filterType))
+            .filter((product) => filterPrice === "" || product.price.includes(filterPrice))
               .map((product, index) => {
                 const { imageUrl, price, title, description } = product;
                 // console.log(product.id);

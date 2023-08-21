@@ -13,6 +13,8 @@ const Filter = () => {
     filterPrice,
     product,
   } = context;
+  const uniqueCategories = Array.from(new Set(product.map((item) => item.category)));
+  const uniquePrices = Array.from(new Set(product.map((item) => item.price)));
   return (
     <div>
       <div className=" container mx-auto px-4 mt-5 ">
@@ -74,13 +76,11 @@ const Filter = () => {
                 }}
               >
                 <option value="">Select a category</option>
-                {product.map((item, index) => {
-                  return (
-                    <option key={index + 1} value={item.category}>
-                      {item.category}
-                    </option>
-                  );
-                })}
+                {uniqueCategories.map((category, index) => (
+                <option key={index + 1} value={category}>
+                  {category}
+                </option>
+              ))}
               </select>
               <select
                 value={filterPrice}
@@ -93,13 +93,11 @@ const Filter = () => {
               >
                 <option value="">Select a Price</option>
 
-                {product.map((item, index) => {
-                  return (
-                    <option key={index + 1} value={item.price}>
-                      {item.price}
-                    </option>
-                  );
-                })}
+                {uniquePrices.map((price, index) => (
+                <option key={index + 1} value={price}>
+                  {price}
+                </option>
+              ))}
               </select>
             </div>
           </div>
