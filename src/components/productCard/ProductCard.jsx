@@ -18,7 +18,7 @@ const ProductCard = () => {
     setFilterPrice,
     filterPrice,
   } = useContext(myContext);
-  const displayProducts = product.slice(0, 4);
+  const displayProducts = product.slice(0, 8);
   const user = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate()
   const dispatch = useDispatch();
@@ -60,7 +60,7 @@ const ProductCard = () => {
           {loading ? (
             <ProductCardShimmer mode={mode} />
           ) : (
-            product
+            displayProducts
               .filter((obj) => obj.title.toLowerCase().includes(searchkey))
               .filter((obj) => obj.category.toLowerCase().includes(filterType))
               .filter((obj) => obj.price.includes(filterPrice))
