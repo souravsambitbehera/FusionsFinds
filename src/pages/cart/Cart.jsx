@@ -21,6 +21,8 @@ const Cart = () => {
   const key_secret = import.meta.env.VITE_REACT_APP_KEY_SECRET;
 
 
+
+
   const buyNow = async () => {
     // validation 
     if (name === "" || address == "" || pincode == "" || phoneNumber == "") {
@@ -49,7 +51,7 @@ const Cart = () => {
         }
       )
     }
-    console.log(addressInfo)
+    // console.log(addressInfo)
 
     var options = {
       key: key,
@@ -109,6 +111,7 @@ const Cart = () => {
       temp = temp + parseInt(cartItem.price)
     })
     setTotalAmount(temp);
+    window.scrollTo(0,0)
     // console.log(temp)
   }, [cartItems])
 

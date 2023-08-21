@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import Filter from "../../components/filter/Filter";
 import { useNavigate,Link } from "react-router-dom";
 import ProductCardShimmer from "../../shimmer/ProductCardShimmer";
+import { useEffect } from "react";
 
 const AllProducts = () => {
   const {
@@ -44,6 +45,9 @@ const AllProducts = () => {
     dispatch(addToCart(serializableProduct));
     toast.success("add to cart successfully");
   };
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   return (
     <>
       {/* <Offer/> */}

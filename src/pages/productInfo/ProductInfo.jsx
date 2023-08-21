@@ -34,6 +34,7 @@ const ProductInfo = () => {
 
     useEffect(() => {
         getProductData()
+        window.scrollTo(0,0)
 
     }, [])
     const user = JSON.parse(localStorage.getItem("user"));

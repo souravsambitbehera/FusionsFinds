@@ -2,10 +2,14 @@ import React, { useContext } from "react";
 import myContext from "../../context/data/myContext";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
+import { useEffect } from "react";
 
 const Order = () => {
   const {mode,loading,order}=useContext(myContext);
   const userid = JSON.parse(localStorage.getItem('user')).user.uid
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   return (
     <>
       <Navbar />
