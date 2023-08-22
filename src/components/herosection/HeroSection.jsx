@@ -21,7 +21,7 @@ const HeroSection = () => {
           >
             <div className="w-full lg:w-auto lg:-mr-32">
               <img
-                src="hero-image-eccomerce1.png"
+                src="hero-image-eccomerce1.jpg"
                 alt="image with decent dresses"
                 className="w-full relative z-30 lg:pl-16 px-4 py-10"
               />
@@ -30,7 +30,7 @@ const HeroSection = () => {
           {/* <div className="absolute top-0  bg-gray-100 md:h-96 w-full hidden md:block lg:hidden"></div> */}
           <div className="hidden w-full h-full lg:hidden">
             <img
-              src="hero-image-eccomerce1.png"
+              src="hero-image-eccomerce1.jpg"
               alt="image with decent dresses"
               className="w-full relative z-30 lg:pl-20 md:px-6 py-5 md:py-14"
             />

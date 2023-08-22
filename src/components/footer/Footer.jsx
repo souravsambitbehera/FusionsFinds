@@ -111,7 +111,7 @@ const Footer = () => {
             </nav>
           </div>
           <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-            <img src="pay.png" alt="" />
+            <img src="pay.jpg" alt="" />
           </div>
         </div>
       </div>
