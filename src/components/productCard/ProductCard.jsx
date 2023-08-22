@@ -71,7 +71,6 @@ const ProductCard = () => {
                   <div
                     className=" p-4 lg:w-72 md:w-72   drop-shadow-lg "
                     key={index}
-                    onClick={()=>navigate(`/productinfo/${product.id}`)}
                   >
                     <div
                       className="font-roboto border-2 hover:shadow-gray-100 hover:shadow-2xl transition-shadow duration-300 ease-in-out    border-gray-200 border-opacity-60 rounded-2xl overflow-hidden"
@@ -80,7 +79,11 @@ const ProductCard = () => {
                         color: mode === "dark" ? "white" : "",
                       }}
                     >
-                      <div className="flex justify-center cursor-pointer">
+                      <div className="flex justify-center cursor-pointer"
+                    onClick={()=>navigate(`/productinfo/${product.id}`)}
+
+                      >
+
                         <img
                           className=" rounded-2xl w-64 h-64  p-2 hover:scale-110 transition-scale-110  duration-300 ease-in-out"
                           src={imageUrl}

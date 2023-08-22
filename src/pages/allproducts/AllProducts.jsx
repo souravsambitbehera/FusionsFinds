@@ -81,7 +81,6 @@ const AllProducts = () => {
                     <div
                       className="p-4 lg:w-72 md:w-72   drop-shadow-lg "
                       key={index}
-                    onClick={()=>navigate(`/productinfo/${product.id}`)}
 
                     >
                       <div
@@ -92,7 +91,10 @@ const AllProducts = () => {
                           color: mode === "dark" ? "white" : "",
                         }}
                       >
-                        <div className="flex justify-center cursor-pointer">
+                        <div className="flex justify-center cursor-pointer"
+                    onClick={()=>navigate(`/productinfo/${product.id}`)}
+                        
+                        >
                           <img
                             className=" rounded-2xl w-64 h-64  p-2 hover:scale-110 transition-scale-110  duration-300 ease-in-out"
                             src={imageUrl}
