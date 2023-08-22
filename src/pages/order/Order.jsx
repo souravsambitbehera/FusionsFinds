@@ -6,7 +6,11 @@ import { useEffect } from "react";
 
 const Order = () => {
   const {mode,loading,order}=useContext(myContext);
-  const userid = JSON.parse(localStorage.getItem('user')).user.uid
+  const user = JSON.parse(localStorage.getItem('user'))
+  // console.log('User:', user);
+  const userid = user ? user.user.uid : null;
+  // console.log('UserID:', userid);
+
   useEffect(()=>{
     window.scrollTo(0,0)
   },[])

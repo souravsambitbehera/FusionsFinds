@@ -99,7 +99,7 @@ const Cart = () => {
     };
     var pay = new window.Razorpay(options);
     pay.open();
-    console.log(pay)
+    // console.log(pay)
   }
   const deleteCart =(item)=>{
     dispatch(deleteFromCart(item))
